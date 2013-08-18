@@ -1,0 +1,7 @@
+1. Create a script that can send email to a csv list of files,
+2. Create a way to add login credentials through the command line,
+3. Create a way to use a predefined templating mechanism
+4. Create a webpage that can access the script and run it with the parameters.
+5. Send out some e-mails to people introducing it as a service they can use for free.
+
+DONE!
