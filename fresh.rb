@@ -43,6 +43,7 @@ rows = CSV.read (opts[:recipients_file])
 rows.each do |row|
     @name = row[0]
     @email = row[1]
+    @subject = row[2]
 
     Mustache.template_file = "./templates/" + opts[:template_file]
 
@@ -61,7 +62,7 @@ rows.each do |row|
     print "Sending mail to ", @email , "\n"
     message = Mail.new({:from => opts[:from],
                         :to   => @email,
-                        :subject => 'Hi, Michael Le',
+                        :subject => @subject,
                         :body  => "\n" + Mustache.render(:name => @name) + "\n"})
 
     # Don't forget delivery
