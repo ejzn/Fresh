@@ -14,4 +14,4 @@ allows you to take your spreadsheets of emails and data, add in some custom Must
 == Future ==
 
 Right now Fresh is in its infancy. In the future it would be nice to build out more templates, add in a Web user interface and more.
-Feel free to add some commits and help it along.
+Feel free to add some commits and help it along. A feature that is must needed is some sort of timing, or back off mechanism. Running this as part of a cron job is probably a good way to do it, since we don't want to get blacklisting in our e-mail address.
