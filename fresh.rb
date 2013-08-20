@@ -44,6 +44,7 @@ rows.each do |row|
     @name = row[0]
     @email = row[1]
     @subject = row[2]
+    @company = row[3]
 
     Mustache.template_file = "./templates/" + opts[:template_file]
 
@@ -62,11 +63,13 @@ rows.each do |row|
     print "Sending mail to ", @email , "\n"
     message = Mail.new({:from => opts[:from],
                         :to   => @email,
-                        :subject => @subject,
-                        :body  => "\n" + Mustache.render(:name => @name) + "\n"})
+                        :subject => @subject})
+    message.html_part = Mail::Part.new({
+                :content_type => 'text/html; charset=UTF-8',
+                :body  => "\n" + Mustache.render(:name => @name, :company => @company) + "\n"})
 
     # Don't forget delivery
     message.deliver!
+    sleep(1)
 end
-
 
